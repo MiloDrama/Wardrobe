@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">My Wardrobe</string>
+    <string name="done">DONE</string>
+    <string name="act_add_cloth">Add Cloth</string>
+    <string name="cloth_picture_description">picture of the cloth</string>
+    <string name="cloth_picture">Cloth picture</string>
+    <string name="last_washed">Last washed</string>
+    <string name="msg_new_cloth">New cloth added</string>
+    <string name="msg_invalid_cloth">Invalid cloth</string>
+    <string name="msg_picture_mandatory">Shirt picture must be provided</string>
+    <string name="pants">Pants</string>
+    <string name="summer_tops">Summer Tops</string>
+    <string name="winter_tops">Winter Tops</string>
+    <string name="act_update_cloth">Update Cloth</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_wash">Wash</string>
+    <string name="action_wear">Wear</string>
+    <string name="msg_cloth_deleted">Cloth deleted</string>
+    <string name="msg_cloth_updated">Cloth updated</string>
+</resources>
