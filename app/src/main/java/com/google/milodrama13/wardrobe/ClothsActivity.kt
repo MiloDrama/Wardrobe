@@ -1,4 +1,4 @@
-package com.example.milo.wardrobe
+package com.google.milodrama13.wardrobe
 
 import android.app.Activity
 import android.arch.lifecycle.ViewModelProviders

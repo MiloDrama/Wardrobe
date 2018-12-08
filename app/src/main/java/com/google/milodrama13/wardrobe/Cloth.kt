@@ -1,18 +1,8 @@
-package com.example.milo.wardrobe
+package com.google.milodrama13.wardrobe
 
 import android.arch.persistence.room.*
-import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Picture
-import android.support.annotation.NonNull
-import android.support.v4.content.FileProvider
 import org.jetbrains.annotations.NotNull
-import java.io.File
-import java.text.SimpleDateFormat
-import java.time.Duration
 import java.time.Instant
-import java.util.*
 
 @Entity(tableName = "cloths")
 class Cloth(

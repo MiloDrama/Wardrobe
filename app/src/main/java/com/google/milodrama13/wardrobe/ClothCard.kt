@@ -1,11 +1,6 @@
-package com.example.milo.wardrobe
+package com.google.milodrama13.wardrobe
 
-import android.app.Application
-import android.content.Context
-import android.content.res.Resources
 import android.graphics.BitmapFactory
-import android.support.v4.content.ContextCompat
-import android.support.v4.content.FileProvider
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView

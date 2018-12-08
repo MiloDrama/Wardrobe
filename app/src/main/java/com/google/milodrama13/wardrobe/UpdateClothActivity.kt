@@ -1,6 +1,5 @@
-package com.example.milo.wardrobe
+package com.google.milodrama13.wardrobe
 
-import android.app.Activity
 import android.graphics.BitmapFactory
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -11,7 +10,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import java.io.File
 import java.text.SimpleDateFormat
-import java.time.Duration
 import java.time.Instant
 import java.util.*
 

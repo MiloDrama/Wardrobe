@@ -1,4 +1,4 @@
-package com.example.milo.wardrobe
+package com.google.milodrama13.wardrobe
 
 enum class ClothType {
     SUMMER_TOP,

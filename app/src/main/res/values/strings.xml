@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">My Wardrobe</string>
+    <string name="channel_name">Wardrobe Notification</string>
+    <string name="channel_description">Remind you to wash your cloths</string>
     <string name="done">DONE</string>
     <string name="act_add_cloth">Add Cloth</string>
     <string name="cloth_picture_description">picture of the cloth</string>

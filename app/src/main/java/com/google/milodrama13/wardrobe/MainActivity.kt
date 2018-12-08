@@ -1,6 +1,10 @@
-package com.example.milo.wardrobe
+package com.google.milodrama13.wardrobe
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.support.design.widget.CoordinatorLayout
 import android.support.design.widget.Snackbar
@@ -17,6 +21,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+
+        createNotificationChannel()
+    }
+
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            val channel = NotificationChannel("WASH", getString(R.string.channel_name), NotificationManager.IMPORTANCE_DEFAULT).apply {
+                description = getString(R.string.channel_description)
+            }
+            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

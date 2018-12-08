@@ -1,4 +1,4 @@
-package com.example.milo.wardrobe
+package com.google.milodrama13.wardrobe
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

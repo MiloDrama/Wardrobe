@@ -1,4 +1,4 @@
-package com.example.milo.wardrobe
+package com.google.milodrama13.wardrobe
 
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
