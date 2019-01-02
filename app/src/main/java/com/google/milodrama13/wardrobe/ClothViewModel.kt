@@ -7,8 +7,11 @@ class ClothViewModel : ViewModel() {
     private var _cloths:LiveData<List<Cloth>>? = null
 
     fun getCloths(dao:MyDao, type:ClothType) : LiveData<List<Cloth>>{
-        if (_cloths == null)
             _cloths = dao.getCloths(type)
         return _cloths!!
+    }
+
+    fun getCloth(position:Int) : Cloth{
+        return _cloths!!.value!![position]
     }
 }

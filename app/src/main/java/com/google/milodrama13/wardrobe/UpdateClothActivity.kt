@@ -35,17 +35,23 @@ class UpdateClothActivity : AppCompatActivity() {
             return
         }
 
-        val cloth_type = findViewById<ImageView>(R.id.cloth_type)
+        val cloth_type = findViewById<ImageView>(R.id.img_wear)
         val cloth_picture = findViewById<ImageView>(R.id.cloth_picture)
         val cloth_use_count = findViewById<TextView>(R.id.cloth_use_count)
         val cloth_last_washed = findViewById<TextView>(R.id.cloth_last_washed)
+        val cloth_last_wear = findViewById<TextView>(R.id.cloth_last_wear)
 
         cloth_use_count.text = _cloth!!.useCount.toString()
 
         if (_cloth!!.lastWashed == null)
-            cloth_last_washed.text = "Never"
+            cloth_last_washed.text = getString(R.string.not_yet)
         else
-            cloth_last_washed.text =  SimpleDateFormat("EEE dd/MM/yyyy").format(Date.from(_cloth!!.lastWashed))
+            cloth_last_washed.text =  SimpleDateFormat("EEE dd/MM/yyyy", Locale.FRANCE).format(Date.from(_cloth!!.lastWashed))
+
+        if (_cloth!!.lastWear == null)
+            cloth_last_wear.text = getString(R.string.not_yet)
+        else
+            cloth_last_wear.text =  SimpleDateFormat("EEE dd/MM/yyyy", Locale.FRANCE).format(Date.from(_cloth!!.lastWear))
 
         val picture = BitmapFactory.decodeFile(_cloth!!.pictureFilePath)
         cloth_picture.setImageBitmap(picture)
@@ -60,6 +66,7 @@ class UpdateClothActivity : AppCompatActivity() {
     fun wear(view: View)
     {
         _cloth!!.useCount++
+        _cloth!!.lastWear = Instant.now()
         updateCloth()
         finish()
     }

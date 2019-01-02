@@ -22,7 +22,7 @@ class RecyclerAdapter(private var _data:List<Cloth>) : RecyclerView.Adapter<Recy
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.cloth_card, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.card_cloth, parent, false)
         return ViewHolder(view)
     }
 

@@ -7,7 +7,8 @@ import android.content.Intent
 class BootCompletedReceiver: BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         if (intent!=null && intent.action == "android.intent.action.BOOT_COMPLETE"){
-
+            MainActivity.createNotificationChannel(context!!)
+            MainActivity.createAlarms(context!!)
         }
     }
 }

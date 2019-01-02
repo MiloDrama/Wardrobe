@@ -1,89 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
+    android:layout_width="match_parent"
     android:orientation="vertical"
     tools:showIn="@layout/activity_update_cloth">
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="96dp"
+        android:layout_height="64dp"
         android:orientation="horizontal">
+
         <ImageView
-            android:id="@+id/cloth_type"
+            android:id="@+id/img_wear"
             android:layout_width="96dp"
-            android:layout_height="96dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/cloth_type_description"
             android:scaleType="fitCenter"
-            />
-        <LinearLayout
-            android:layout_weight="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/ic_shirt" />
+
+        <TextView
+            android:id="@+id/label_last_washed"
+            android:layout_width="196dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/last_washed"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_wear"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/cloth_last_washed"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:gravity="center_vertical"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-                android:text="@string/last_washed"/>
-            <TextView
-                android:id="@+id/cloth_last_washed"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-                android:gravity="center_vertical"/>
-        </LinearLayout>
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/label_last_washed"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="dim. 01/01/01" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp">
+
         <TextView
             android:id="@+id/cloth_use_count"
-            android:layout_weight="0.25"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="96dp"
+            android:layout_height="0dp"
             android:gravity="center"
-            android:layout_marginEnd="8dp"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
-    </LinearLayout>
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_conversion_absoluteHeight="96dp"
+            tools:layout_conversion_absoluteWidth="62dp"
+            tools:text="0" />
+
+        <TextView
+            android:id="@+id/label_last_wear"
+            android:layout_width="196dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/last_wear"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cloth_use_count"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/cloth_last_wear"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/label_last_wear"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="dim. 01/01/01" />
+
+    </android.support.constraint.ConstraintLayout>
 
     <LinearLayout
+        android:layout_height="96dp"
         android:layout_width="match_parent"
-        android:layout_height="128dp"
+        style="?android:attr/buttonBarStyle"
         android:orientation="horizontal">
+
         <Button
             android:id="@+id/button_wear"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:drawableStart="@drawable/ic_wear"
             android:onClick="wear"
-            android:text="@string/action_wear" />
+            android:text="@string/action_wear"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
         <Button
             android:id="@+id/button_wash"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:drawableStart="@drawable/ic_laundry"
             android:onClick="wash"
-            android:text="@string/action_wash" />
+            android:text="@string/action_wash"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
         <Button
             android:id="@+id/button_delete"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:drawableStart="@drawable/ic_delete"
             android:onClick="delete"
-            android:text="@string/action_delete" />
+            android:text="@string/action_delete"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/cloth_picture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
         android:background="@color/colorLightGray"
-        android:contentDescription="@string/cloth_picture"/>
+        android:contentDescription="@string/cloth_picture"
+        android:id="@+id/cloth_picture"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:scaleType="centerInside" />
 </LinearLayout>
  

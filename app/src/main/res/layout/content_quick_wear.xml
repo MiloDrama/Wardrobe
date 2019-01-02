@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_add_cloth">
+    tools:showIn="@layout/activity_quick_wear">
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.25"/>
+        app:layout_constraintGuide_percent="0.1"/>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline">
 
         <ImageButton
             android:id="@+id/button_winter_top"
@@ -32,7 +29,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:contentDescription="@string/winter_cloth_description"
-            android:onClick="selectWinterTop"
+            android:onClick="displayWinterTop"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_shirt" />
 
@@ -42,7 +39,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:contentDescription="@string/summer_cloth_description"
-            android:onClick="selectSummerTop"
+            android:onClick="displaySummerTop"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_short_sleeved_shirt" />
 
@@ -52,36 +49,22 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:contentDescription="@string/pants_description"
-            android:onClick="selectPants"
+            android:onClick="displayPants"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_pants" />
     </LinearLayout>
 
-    <FrameLayout
+    <GridView
+        android:id="@+id/gridview"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/colorLightGray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline">
-
-        <ImageView
-            android:id="@+id/picture"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:contentDescription="@string/cloth_picture"
-            android:onClick="takePicture"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_picture"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/guideline" />
-    </FrameLayout>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:columnWidth="128dp"
+        android:numColumns="auto_fit"
+        android:stretchMode="columnWidth">
+    </GridView>
 
 </android.support.constraint.ConstraintLayout>

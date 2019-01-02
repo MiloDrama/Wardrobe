@@ -58,11 +58,7 @@ class ClothsActivity : AppCompatActivity() {
         _viewModel = ViewModelProviders.of(this).get(ClothViewModel::class.java) as ClothViewModel
 
         _recycler = findViewById(R.id.recycler)
-        val _layoutMgr = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        _recycler!!.layoutManager = _layoutMgr
-
-        val itemTouchHelper = ItemTouchHelper(SwipeController())
-        itemTouchHelper.attachToRecyclerView(_recycler)
+        _recycler!!.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
         val observer = android.arch.lifecycle.Observer<List<Cloth>> { list ->
                 if (_recycler!!.adapter == null) {
@@ -87,6 +83,10 @@ class ClothsActivity : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_add_cloth -> addCloth()
+            R.id.action_quick_wear -> {
+                MainActivity.notifyClothChoice(this)
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

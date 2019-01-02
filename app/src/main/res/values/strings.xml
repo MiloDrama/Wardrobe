@@ -19,4 +19,20 @@
     <string name="action_wear">Wear</string>
     <string name="msg_cloth_deleted">Cloth deleted</string>
     <string name="msg_cloth_updated">Cloth updated</string>
+    <string name="never_washed">Never</string>
+    <string name="cloth_type_description">Cloth type</string>
+    <string name="last_wear">Last wear</string>
+    <string name="winter_cloth_description">Winter cloth</string>
+    <string name="summer_cloth_description">Summer cloth</string>
+    <string name="pants_description">Pants</string>
+    <string name="laundry_description">Laundry</string>
+    <string name="wear_description">Wear</string>
+    <string name="not_yet">Not yet</string>
+    <string name="authority">com.google.milodrama13</string>
+    <string name="msg_check_winter">Check the winter tops</string>
+    <string name="msg_check_summer">Check the summer tops</string>
+    <string name="msg_check_pants">Check the pants</string>
+    <string name="title_laundry">There is laundry to do</string>
+    <string name="msg_what_cloth_today">What are you wearing today?</string>
+    <string name="title_wear_today">Quick wear</string>
 </resources>

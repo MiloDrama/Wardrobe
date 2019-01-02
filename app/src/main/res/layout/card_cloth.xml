@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/cloth_card_height"
+    android:orientation="horizontal"
+    android:layout_marginBottom="1dp"
+    android:onClick="updateCloth">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guidelineH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5"/>
+
+        <TextView
+            android:id="@+id/cloth_id"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/cloth_picture"
+            android:layout_width="96dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/wear_description"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/ic_shirt" />
+
+        <TextView
+            android:id="@+id/cloth_last_wear"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toTopOf="@+id/cloth_last_washed"
+            app:layout_constraintEnd_toStartOf="@+id/cloth_use_count"
+            app:layout_constraintStart_toEndOf="@+id/img_wash"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/last_wear" />
+
+        <ImageView
+            android:id="@+id/img_wash"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:contentDescription="@string/laundry_description"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cloth_picture"
+            app:layout_constraintTop_toTopOf="@+id/guidelineH"
+            app:srcCompat="@drawable/ic_laundry" />
+
+        <TextView
+            android:id="@+id/cloth_last_washed"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cloth_use_count"
+            app:layout_constraintStart_toEndOf="@+id/img_wash"
+            app:layout_constraintTop_toBottomOf="@id/guidelineH"
+            tools:text="@string/last_washed" />
+
+        <ImageView
+            android:id="@+id/img_wear"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:contentDescription="Last wear"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@id/guidelineH"
+            app:layout_constraintStart_toEndOf="@+id/cloth_picture"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_wear" />
+
+        <TextView
+            android:id="@+id/cloth_use_count"
+            android:layout_width="96dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="0" />
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

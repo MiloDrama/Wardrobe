@@ -119,7 +119,7 @@ class AddClothActivity : AppCompatActivity() {
             val imageFile:File = createImageFile()
             if (imageFile != null)
             {
-                val imageUri: Uri = FileProvider.getUriForFile(this, "com.example.milo", imageFile)
+                val imageUri: Uri = FileProvider.getUriForFile(this, getString(R.string.authority), imageFile)
                 _cameraIntent!!.putExtra(MediaStore.EXTRA_OUTPUT, imageUri)
             }
             startActivityForResult(_cameraIntent, CameraRequestCode)

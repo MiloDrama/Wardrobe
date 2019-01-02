@@ -13,7 +13,7 @@
         android:id="@+id/button_cloth_type"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        tools:text="Cloths" />
 
     <android.support.v7.widget.RecyclerView
      android:layout_width="match_parent"

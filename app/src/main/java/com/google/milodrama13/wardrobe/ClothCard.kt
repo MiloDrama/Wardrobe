@@ -1,6 +1,5 @@
 package com.google.milodrama13.wardrobe
 
-import android.graphics.BitmapFactory
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -10,18 +9,22 @@ import java.time.Instant
 import java.util.*
 
 class ClothCard(view: View) {
-    var cloth_type: ImageView
     var cloth_picture: ImageView
     var cloth_use_count: TextView
+    var cloth_last_wear : TextView
     var cloth_last_washed: TextView
     var cloth_id:TextView
+    var notYetText: String
+    var height: Int
 
     init {
-        cloth_type = view.findViewById(R.id.cloth_type)
         cloth_picture = view.findViewById(R.id.cloth_picture)
         cloth_use_count = view.findViewById(R.id.cloth_use_count)
         cloth_last_washed = view.findViewById(R.id.cloth_last_washed)
+        cloth_last_wear = view.findViewById(R.id.cloth_last_wear)
         cloth_id = view.findViewById(R.id.cloth_id)
+        notYetText = view.context.getString(R.string.not_yet)
+        height = R.dimen.cloth_card_height
     }
 
     fun setCloth(cloth:Cloth){
@@ -29,31 +32,19 @@ class ClothCard(view: View) {
         cloth_use_count.text = cloth.useCount.toString()
 
         if (cloth.lastWashed == null)
-            cloth_last_washed.text = "Never"
+            cloth_last_washed.text = notYetText
         else{
             val days = Duration.between(cloth.lastWashed,Instant.now()).toDays()
-            cloth_last_washed.text =  SimpleDateFormat("EEE dd/MM/yyyy").format(Date.from(cloth.lastWashed)) + " (" + days + " days ago)"
+            cloth_last_washed.text =  SimpleDateFormat("EEE dd/MM/yyyy", Locale.FRANCE).format(Date.from(cloth.lastWashed)) + " (" + days + " days ago)"
+        }
+        if (cloth.lastWear == null)
+            cloth_last_wear.text = notYetText
+        else{
+            cloth_last_wear.text =  SimpleDateFormat("EEE dd/MM/yyyy", Locale.FRANCE).format(Date.from(cloth.lastWear))
         }
 
-        val options = BitmapFactory.Options()
-        options.inJustDecodeBounds = true
-        BitmapFactory.decodeFile(cloth.pictureFilePath, options)
-        //val scale = options.outHeight/96
-        //val scale = Math.min(options.outWidth/cloth_picture.measuredWidth, options.outHeight/cloth_picture.measuredHeight)
-        //val scale = Math.min(4*options.outWidth/(cloth_picture.parent.parent as View).width, options.outHeight/(cloth_picture.parent.parent as View).height)
-        var scale = 1
-        val halfHeight = options.outHeight/2
-        while (halfHeight/scale >= 96)
-            scale *= 2
-        options.inJustDecodeBounds = false
-        options.inSampleSize = scale
-        val picture = BitmapFactory.decodeFile(cloth.pictureFilePath, options)
+        val picture = cloth.geBitmap(height)
         cloth_picture.setImageBitmap(picture)
-
-        when(cloth.type) {
-            ClothType.SUMMER_TOP -> cloth_type.setImageResource(R.drawable.ic_short_sleeved_shirt)
-            ClothType.WINTER_TOP -> cloth_type.setImageResource(R.drawable.ic_shirt)
-            ClothType.PANTS -> cloth_type.setImageResource(R.drawable.ic_pants)
-        }
     }
+
 }
