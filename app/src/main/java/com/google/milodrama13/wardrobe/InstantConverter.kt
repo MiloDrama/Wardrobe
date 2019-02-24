@@ -16,6 +16,8 @@ class InstantConverter {
     fun fromInstant(value: Instant?):Long?{
         if (value == null)
             return null
+        if (value < Instant.EPOCH)
+            return 0
         return value.toEpochMilli()
     }
 

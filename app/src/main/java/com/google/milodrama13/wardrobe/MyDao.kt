@@ -25,5 +25,14 @@ interface MyDao {
     fun deleteCloth(cloth:Cloth)
 
     @Query("DELETE FROM cloths")
-    fun clear()
+    fun clearCloths()
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun trace(item:TraceItem)
+
+    @Query("SELECT * FROM tracing WHERE timestamp >= :reference ORDER BY timestamp DESC")
+    fun getTraceItems(reference:Instant) : LiveData<List<TraceItem>>
+
+    @Query("DELETE FROM tracing")
+    fun clearTracing()
 }

@@ -9,8 +9,7 @@
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
-    <uses-permission
-        android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -19,6 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.google.milodrama13"
@@ -33,12 +33,12 @@
             android:name=".BootCompletedReceiver"
             android:enabled="true">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
         <receiver
             android:name=".AlarmReceiver"
-            android:enabled="true"/>
+            android:enabled="true" />
 
         <activity
             android:name=".MainActivity"
@@ -53,21 +53,24 @@
         <activity
             android:name=".ClothsActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AddClothActivity"
             android:label="@string/act_add_cloth"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".UpdateClothActivity"
             android:label="@string/act_update_cloth"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".QuickWearActivity"
             android:label="Quick Wear"
-            android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".MainActivity"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TracingActivity"
+            android:label="Tracing"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

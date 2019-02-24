@@ -8,4 +8,10 @@
     <item
         android:id="@+id/action_quick_wear"
         android:title="Quick wear"/>
+    <item
+        android:id="@+id/action_tracing"
+        android:title="Show Tracing"/>
+    <item
+        android:id="@+id/action_clear_tracing"
+        android:title="Clear Tracing"/>
 </menu>

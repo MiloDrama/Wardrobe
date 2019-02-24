@@ -9,7 +9,6 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -22,7 +21,7 @@ class ClothsActivity : AppCompatActivity() {
     private var _button: Button?=null
 
     private var _recycler: RecyclerView? = null
-    private var _adapter: RecyclerAdapter? = null
+    private var _adapter: ClothRecyclerAdapter? = null
     private var _viewModel: ClothViewModel? = null
 
     private var _type:ClothType = ClothType.WINTER_TOP
@@ -62,7 +61,7 @@ class ClothsActivity : AppCompatActivity() {
 
         val observer = android.arch.lifecycle.Observer<List<Cloth>> { list ->
                 if (_recycler!!.adapter == null) {
-                    _adapter = RecyclerAdapter(list!!)
+                    _adapter = ClothRecyclerAdapter(list!!)
                     _recycler!!.adapter = _adapter
                 } else {
                     _adapter!!.update(list!!)
@@ -85,6 +84,16 @@ class ClothsActivity : AppCompatActivity() {
             R.id.action_add_cloth -> addCloth()
             R.id.action_quick_wear -> {
                 MainActivity.notifyClothChoice(this)
+                true
+            }
+            R.id.action_tracing -> {
+                val intent = Intent(this, TracingActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.action_clear_tracing -> {
+                val dao = MyDatabase.getInstance(this).getDao()
+                dao.clearTracing()
                 true
             }
             else -> super.onOptionsItemSelected(item)

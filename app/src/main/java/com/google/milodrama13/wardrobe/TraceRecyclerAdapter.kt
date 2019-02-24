@@ -5,34 +5,34 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-class RecyclerAdapter(private var _data:List<Cloth>) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class TraceRecyclerAdapter(private var _data:List<TraceItem>) : RecyclerView.Adapter<TraceRecyclerAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int {
         return _data.size
     }
 
-    fun update(cloths:List<Cloth>){
-        _data = cloths
+    fun update(traces:List<TraceItem>){
+        _data = traces
         notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val cloth = _data[position]
-        holder.card.setCloth(cloth)
+        val trace = _data[position]
+        holder.card.setTrace(trace)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.card_cloth, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.card_trace, parent, false)
         return ViewHolder(view)
     }
 
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     {
-        internal var card:ClothCard
+        internal var card:TraceCard
 
         init {
-            card = ClothCard(itemView)
+            card = TraceCard(itemView)
         }
     }
 }
